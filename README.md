@@ -5,7 +5,7 @@
 A rigorous, data-driven computational analysis of the Quran's latent mathematical structure using modern transformer architectures and information-theoretic methods.
 
 ## Live Dashboard
-**[View the Interactive Dashboard →](https://tamer1022.github.io/project-nur/)**
+**[View the Interactive Dashboard →](https://tamer1022-ai.github.io/project-nur/)**
 
 ## Key Findings
 
