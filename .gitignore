@@ -1,0 +1,7 @@
+# Data files (too large for GitHub)
+data/
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.parquet
