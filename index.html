@@ -161,8 +161,8 @@ tr:hover td{background:rgba(99,102,241,0.05)}
 <div class="card full-width">
 <h2><span class="dot" style="background:#f59e0b"></span> Synthetic AI Control — Can AI Replicate the Signature?</h2>
 <div class="finding" style="border-left-color:#f59e0b">
-<h3 style="color:#f59e0b">Result: NO — AI cannot replicate the Quran's mathematical fingerprint.</h3>
-<p>We generated 1,500 Arabic texts using ArGPT2 across three strategies: Quran-style seeds, generic Arabic, and religious prose. Even when explicitly mimicking Quranic vocabulary and style, the AI produces text that the Classical Arabic model finds <strong>19-28x more predictable</strong> than the actual Quran.</p>
+<h3 style="color:#f59e0b">Result: ArGPT2 (small model) cannot replicate the Quran's mathematical fingerprint.</h3>
+<p>We generated 1,500 Arabic texts using ArGPT2 across three strategies: Quran-style seeds, generic Arabic, and religious prose. Even when explicitly mimicking Quranic vocabulary and style, the AI produces text that the Classical Arabic model finds <strong>19-28x more predictable</strong> than the actual Quran. <em>Note: frontier LLMs (GPT-4, Claude) remain untested — this result is limited to small generative models.</em></p>
 </div>
 <table>
 <thead><tr><th>Corpus</th><th>CAMeLBERT PPL</th><th>CI (95%)</th><th>AraBERT PPL</th><th>CI (95%)</th><th>vs Quran (CAMeL)</th></tr></thead>
@@ -171,6 +171,26 @@ tr:hover td{background:rgba(99,102,241,0.05)}
 <tr><td style="color:#f59e0b">AI — Quran-Style</td><td>36.35</td><td>[28.7, 45.0]</td><td>11.18</td><td>[9.1, 13.8]</td><td>0.05x</td></tr>
 <tr><td style="color:#f59e0b">AI — Generic Arabic</td><td>86.68</td><td>[68.1, 107.9]</td><td>14.55</td><td>[11.8, 17.9]</td><td>0.12x</td></tr>
 <tr><td style="color:#f59e0b">AI — Religious Prose</td><td>24.63</td><td>[19.9, 31.1]</td><td>9.12</td><td>[7.5, 10.9]</td><td>0.04x</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- Red Team Validation -->
+<div class="grid">
+<div class="card full-width">
+<h2><span class="dot" style="background:#ef4444"></span> Red Team Validation — Attacking Our Own Results</h2>
+<div class="finding" style="border-left-color:#ef4444">
+<h3 style="color:#ef4444">3 of 4 confound attacks failed. 2 actually strengthened the finding.</h3>
+<p>We subjected our methodology to adversarial stress testing, addressing tokenization confounds, orthographic artifacts, windowing effects, and length-controlled thematic analysis. The core Quran-Hadith PPL gap is <strong>810-1,260x</strong> after all corrections — larger than originally reported.</p>
+</div>
+<table>
+<thead><tr><th>Confound Test</th><th>Expected Effect</th><th>Actual Result</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>Uthmani orthography inflates PPL?</td><td>Gap should shrink</td><td>Gap <strong>INCREASED</strong> to 810x</td><td style="color:#10b981">✅ Eliminated</td></tr>
+<tr><td>Cross-verse windowing inflates PPL?</td><td>Gap should shrink</td><td>Gap <strong>INCREASED</strong> to 1,260x</td><td style="color:#10b981">✅ Eliminated</td></tr>
+<tr><td>Tokenizer fragmentation drives gap?</td><td>Should explain gap</td><td>1.3x difference vs 810x gap</td><td style="color:#10b981">✅ Eliminated</td></tr>
+<tr><td>Aqeedah = most anomalous theme?</td><td>Should survive</td><td>Theme adds only 1.4% R²</td><td style="color:#ef4444">🔴 Retracted — length artifact</td></tr>
 </tbody>
 </table>
 </div>
